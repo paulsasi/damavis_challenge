@@ -92,5 +92,15 @@ def test_validate_board_10():
 
 
 def test_validate_board_11():
+    input_board = "[10, 5]"
+    assert validator.validate_board(input_board) == (10, 5)
+
+
+def test_validate_board_12():
+    input_board = "[6, 10]"
+    assert validator.validate_board(input_board) == (6, 10)
+
+
+def test_validate_board_13():
     input_board = "[5, 7]"
     assert validator.validate_board(input_board) == (5, 7)
