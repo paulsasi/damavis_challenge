@@ -104,3 +104,53 @@ def test_validate_board_12():
 def test_validate_board_13():
     input_board = "[5, 7]"
     assert validator.validate_board(input_board) == (5, 7)
+
+
+def test_validate_depth_1():
+    input_depth = ""
+    try:
+        output = validator.validate_depth(input_depth)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 0 == 0
+
+
+def test_validate_depth_2():
+    input_depth = "test"
+    try:
+        output = validator.validate_depth(input_depth)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 0 == 0
+
+
+def test_validate_depth_3():
+    input_depth = "5.5"
+    try:
+        output = validator.validate_depth(input_depth)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 0 == 0
+
+
+def test_validate_depth_4():
+    input_depth = "0"
+    try:
+        output = validator.validate_depth(input_depth)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 0 == 0
+
+
+def test_validate_depth_5():
+    input_depth = "21"
+    try:
+        output = validator.validate_depth(input_depth)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 0 == 0
+
+
+def test_validate_depth_6():
+    input_depth = "15"
+    assert validator.validate_depth(input_depth) == 15
