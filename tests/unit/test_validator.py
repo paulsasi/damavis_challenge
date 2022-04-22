@@ -154,3 +154,63 @@ def test_validate_depth_5():
 def test_validate_depth_6():
     input_depth = "15"
     assert validator.validate_depth(input_depth) == 15
+
+
+def test_validate_snake_1():
+    input_snake = "[[2, 2], [3, ]]"
+    try:
+        output = validator.validate_snake(input_snake)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 1 == 1
+
+
+def test_validate_snake_2():
+    input_snake = "[[2, 2, [3, 3]]"
+    try:
+        output = validator.validate_snake(input_snake)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 1 == 1
+
+
+def test_validate_snake_3():
+    input_snake = "[2, 2, 5, 6]"
+    try:
+        output = validator.validate_snake(input_snake)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 1 == 1
+
+
+def test_validate_snake_4():
+    input_snake = "[[2, 2], [3, 3]]"
+    try:
+        output = validator.validate_snake(input_snake)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 1 == 1
+
+
+def test_validate_snake_5():
+    input_snake = "[[2, 2], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]]"
+    try:
+        output = validator.validate_snake(input_snake)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 1 == 1
+
+
+def test_validate_snake_6():
+    input_snake = "[[2, 2], [3, 3], [3, 3, 5], [3, 3]]"
+    try:
+        output = validator.validate_snake(input_snake)
+        assert 0 == 1
+    except validator.ValidationError:
+        assert 1 == 1
+
+
+def test_validate_snake_7():
+    input_snake = "[[2, 2], [3, 3], [3, 3], [3, 3]]"
+    output = [[2, 2], [3, 3], [3, 3], [3, 3]]
+    assert validator.validate_snake(input_snake) == output

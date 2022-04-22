@@ -1,3 +1,4 @@
+from ast import parse
 from typing import List, Tuple
 import json
 
@@ -50,4 +51,21 @@ def validate_depth(depth: str) -> int:
 
 
 def validate_snake(snake: str) -> Tuple[int]:
-    pass
+    try:
+        parsed_snake = json.loads(snake)
+
+        if not all(isinstance(cell, list) for cell in parsed_snake):
+            raise ValidationError
+
+        SNAKE_THRESHOLD_LOWER = 3
+        SNAKE_THRESHOLD_UPPER = 7
+        if not (SNAKE_THRESHOLD_LOWER <= len(parsed_snake) <= SNAKE_THRESHOLD_UPPER):
+            raise ValidationError
+
+        if any([len(cell) != 2 for cell in parsed_snake]):
+            raise ValidationError
+
+        return parsed_snake
+
+    except (json.decoder.JSONDecodeError, ValidationError):
+        raise ValidationError("Input snake does not fullfill the constraints.")
