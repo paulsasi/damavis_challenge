@@ -60,3 +60,6 @@ class Snake(player.Player):
         head_moved = (self.head[0], self.head[1] + 1)
         snake_moved = (head_moved,) + self.snake[:-1]
         return Snake(snake_moved)
+
+    def __eq__(self, __o: object) -> bool:
+        return self.snake == __o.snake

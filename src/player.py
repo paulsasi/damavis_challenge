@@ -10,6 +10,10 @@ class PlayerConstraintsError(Exception):
 class Player(ABC):
 
     @abstractmethod
+    def is_within_limits(self, rows: int, cols: int) -> bool:
+        pass
+
+    @abstractmethod
     def move_up(self) -> 'Player':
         pass
 
