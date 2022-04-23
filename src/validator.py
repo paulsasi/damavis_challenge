@@ -65,6 +65,7 @@ def validate_snake(snake: str) -> Tuple[Tuple[int]]:
         if any([len(cell) != 2 for cell in parsed_snake]):
             raise ValidationError
 
+        parsed_snake = tuple([tuple(el) for el in parsed_snake])
         return parsed_snake
 
     except (json.decoder.JSONDecodeError, ValidationError):

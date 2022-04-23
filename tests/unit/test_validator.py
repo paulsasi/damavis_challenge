@@ -212,5 +212,5 @@ def test_validate_snake_6():
 
 def test_validate_snake_7():
     input_snake = "[[2, 2], [3, 3], [3, 3], [3, 3]]"
-    output = [[2, 2], [3, 3], [3, 3], [3, 3]]
+    output = ((2, 2), (3, 3), (3, 3), (3, 3))
     assert validator.validate_snake(input_snake) == output
