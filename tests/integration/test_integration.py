@@ -1,4 +1,3 @@
-from tkinter import N
 import src.config.config as config
 import src.main as main
 
