@@ -1,8 +1,6 @@
 import os
 import sys
 
-from player import Player
-
 sys.path.insert(0, str(os.getcwd()))
 
 import os.path as path
@@ -18,7 +16,7 @@ import src.player as player
 import src.path_calculator as path_calculator
 
 
-def main(configs: config.Config):
+def main(configs: config.Config) -> int:
 
     logging_service = logger.Logger(name='event-rule-frequency-logger', path=configs.get("logging.path"),
                                         level=configs.get("logging.level"))
@@ -37,7 +35,11 @@ def main(configs: config.Config):
 
         logging_service.info("Step3: Calculate the number of available different paths for the snake")
         number_of_available_paths = path_calculator.available_paths(initial_board=board_starting_position, depth=input_args_depth)
-        print(number_of_available_paths)
+
+        logging_service.info(f"====> Number of valid paths of length {input_args_depth} the snake can make on the board: {number_of_available_paths}")
+        logging_service.info("==================== ====================== =================== ====================")
+
+        return number_of_available_paths
 
     except (validator.ValidationError, player.PlayerConstraintsError, board.BoardPossitionError) as e:
         logging_service.error(e)
