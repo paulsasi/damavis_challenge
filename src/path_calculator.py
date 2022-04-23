@@ -2,7 +2,14 @@ import src.board as board
 
 
 def available_paths(initial_board: board.Board, depth: int) -> int:
-    """Classic DFS algorithm with early stopping implemented with a QUEUE data structure."""
+    """Paths are scrapped using Breadth-first search (BFS) algorithm with early stopping. The implementation of DFS is
+    done using a QUEUE data structure. Remark that for a tree (our case), we don't need to keep track of visited nodes.
+    Take int account that BFS is a computationally expensive operation:
+        - Time complexity: In general, O(V) where V is the number of nodes (you need to traverse all nodes at worst). For
+            our case, with 4 possible moves and depth p, there are ~4^p nodes.
+        - Space complexity: O(V) as well - since at worst case you need to hold all vertices in the queue.
+
+    """
 
     # Considered board moves
     considered_moves = [
@@ -15,9 +22,6 @@ def available_paths(initial_board: board.Board, depth: int) -> int:
     # Initialize queue
     queue = [initial_board]
 
-    # Initialize visited
-    visited = []
-
     # Initialize searched level
     searched_level = 0
 
@@ -25,10 +29,6 @@ def available_paths(initial_board: board.Board, depth: int) -> int:
         current_level = len(queue)
         for _ in (reversed(range(current_level))):
             node_board = queue.pop(0)
-
-            if node_board in visited:
-                continue
-            visited.append(node_board)
 
             for move in considered_moves:
                 try:
