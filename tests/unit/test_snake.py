@@ -64,6 +64,34 @@ def test_snake_init_6():
         assert 0 == 0
 
 
+def test_snake_is_within_limits_1():
+    input_snake = snake.Snake(((2, 0), (3, 0), (4, 0)))
+    input_rows, input_cols = 5, 5
+
+    assert input_snake.is_within_limits(input_rows, input_cols) is True
+
+
+def test_snake_is_within_limits_2():
+    input_snake = snake.Snake(((-1, 0), (0, 0), (1, 0)))
+    input_rows, input_cols = 5, 5
+
+    assert input_snake.is_within_limits(input_rows, input_cols) is False
+
+
+def test_snake_is_within_limits_3():
+    input_snake = snake.Snake(((0, 0), (0, 1), (0, 2), (0, 3)))
+    input_rows, input_cols = 3, 3
+
+    assert input_snake.is_within_limits(input_rows, input_cols) is False
+
+
+def test_snake_is_within_limits_4():
+    input_snake = snake.Snake(((0, 0), (1, 0), (2, 0), (3, 0)))
+    input_rows, input_cols = 3, 5
+
+    assert input_snake.is_within_limits(input_rows, input_cols) is False
+
+
 def test_snake_move_up_1():
     input_snake = snake.Snake(((2, 0), (3, 0), (4, 0)))
     output = snake.Snake(((1, 0), (2, 0), (3, 0)))

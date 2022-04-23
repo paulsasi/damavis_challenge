@@ -30,6 +30,17 @@ class Snake(player.Player):
 
         return True
 
+    def is_within_limits(self, rows: int, cols: int) -> bool:
+        snake_rows, snake_cols = list(zip(*self.snake))
+
+        if min(snake_rows) < 0 or max(snake_rows) > rows - 1:
+            return False
+
+        if min(snake_cols) < 0 or max(snake_cols) > cols - 1:
+            return False
+
+        return True
+
     def move_up(self) -> 'Snake':
         head_moved = (self.head[0] - 1, self.head[1])
         snake_moved = (head_moved,) + self.snake[:-1]
