@@ -4,7 +4,7 @@ This repository contains the solution to the Damavis Challenge.
 
 ## Challenge Description
 
-The following is provided problem statement:
+The following is the provided problem statement:
 
 *Consider a rectangular board consisting of n × m cells. There is a snake lying on some of the
 cells, and all of the other cells are empty. The snake consists of one or more cells such that
@@ -24,7 +24,7 @@ respectively) describing the movements of snake's head on each turn.*
 
 ## Formal definition
 
-The input of the problem are:
+The inputs of the problem are:
 
 #### board
 
@@ -50,4 +50,50 @@ The **snake** is an array of integers. `snake[i]` corresponds to coordinates of 
 The **depth** is an integer representing the paths depth. Depth constraints are:
 
 - 1 <= depth <= 20
+
+
+# Quickstart
+
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)
+
+Clone the repo
+
+```bash
+git clone https://github.com/paulsasi/damavis_challenge.git
+```
+
+Go to the project directory
+
+```bash
+cd damavis_challenge
+```
+
+Install dependencies
+
+```bash
+pip3 install requirements.txt
+```
+
+Introduce the input arguments in the `application.properties` file. To obtain the result, execute
+
+```bash
+python3 src/main.py
+```
+
+# Running Tests
+
+[Pytest](https://docs.pytest.org/en/7.1.x/) Python testing framework is used to test the project.
+
+- To run unit tests
+
+```bash
+python3 -m pytest tests/unit -vv
+```
+
+- To run integration tests
+
+```bash
+python3 -m pytest tests/integration -vv
+```
+
 
