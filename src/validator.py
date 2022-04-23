@@ -50,7 +50,7 @@ def validate_depth(depth: str) -> int:
         raise ValidationError("Input depth does not fullfill the constraints.")
 
 
-def validate_snake(snake: str) -> Tuple[int]:
+def validate_snake(snake: str) -> Tuple[Tuple[int]]:
     try:
         parsed_snake = json.loads(snake)
 

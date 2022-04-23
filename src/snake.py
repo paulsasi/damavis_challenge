@@ -1,0 +1,51 @@
+from typing import Tuple
+
+import src.player as player
+
+
+class Snake(player.Player):
+
+    def __init__(self, snake: Tuple[Tuple[int]]):
+
+        self.snake: Tuple[Tuple[int]] = snake
+        if not self.__is_valid():
+            raise player.PlayerConstraintsError
+
+        self.head: Tuple[int] = snake[0]
+
+    def __is_valid(self) -> bool:
+
+        # No repetition of snake cells
+        if len(set(self.snake)) != len(self.snake):
+            return False
+
+        # Snake cells horizontally or vertically adjacent
+        for i in range(len(self.snake) - 1):
+            snake_part_1_x, snake_part_1_y = self.snake[i]
+            snake_part_2_x, snake_part_2_y = self.snake[i + 1]
+
+            distance = (snake_part_2_x - snake_part_1_x) ** 2 + (snake_part_2_y - snake_part_1_y) ** 2
+            if distance != 1:
+                return False
+
+        return True
+
+    def move_up(self) -> 'Snake':
+        head_moved = (self.head[0] - 1, self.head[1])
+        snake_moved = (head_moved,) + self.snake[:-1]
+        return Snake(snake_moved)
+
+    def move_down(self) -> 'Snake':
+        head_moved = (self.head[0] + 1, self.head[1])
+        snake_moved = (head_moved,) + self.snake[:-1]
+        return Snake(snake_moved)
+
+    def move_left(self) -> 'Snake':
+        head_moved = (self.head[0], self.head[1] - 1)
+        snake_moved = (head_moved,) + self.snake[:-1]
+        return Snake(snake_moved)
+
+    def move_right(self) -> 'Snake':
+        head_moved = (self.head[0], self.head[1] + 1)
+        snake_moved = (head_moved,) + self.snake[:-1]
+        return Snake(snake_moved)
