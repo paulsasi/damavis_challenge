@@ -1,5 +1,5 @@
-import src.snake as snake
-import src.player as player
+import src.core.snake as snake
+import src.core.player as player
 
 
 def test_snake_init_1():

@@ -9,11 +9,11 @@ import json
 
 import src.config.config as config
 import src.logger.logger as logger
-import src.validator as validator
-import src.board as board
-import src.snake as snake
-import src.player as player
-import src.path_calculator as path_calculator
+import src.core.validator as validator
+import src.core.board as board
+import src.core.snake as snake
+import src.core.player as player
+import src.core.path_calculator as path_calculator
 
 
 def main(configs: config.Config) -> int:

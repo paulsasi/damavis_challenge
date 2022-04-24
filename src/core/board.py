@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import List
 
-import src.player as player
+import src.core.player as player
 
 
 class BoardPossitionError(Exception):

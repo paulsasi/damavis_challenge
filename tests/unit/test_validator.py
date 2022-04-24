@@ -1,4 +1,4 @@
-import src.validator as validator
+import src.core.validator as validator
 
 
 def test_validate_board_1():

@@ -1,6 +1,6 @@
 from typing import Tuple
 
-import src.player as player
+import src.core.player as player
 
 
 class Snake(player.Player):

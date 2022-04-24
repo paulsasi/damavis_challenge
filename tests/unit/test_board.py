@@ -1,5 +1,5 @@
-import src.board as board
-import src.snake as snake
+import src.core.board as board
+import src.core.snake as snake
 
 
 def test_board_init_1():

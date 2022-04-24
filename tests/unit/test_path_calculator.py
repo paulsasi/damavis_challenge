@@ -1,6 +1,6 @@
-import src.path_calculator as path_calculator
-import src.board as board
-import src.snake as snake
+import src.core.path_calculator as path_calculator
+import src.core.board as board
+import src.core.snake as snake
 
 
 def test_available_paths_1():
