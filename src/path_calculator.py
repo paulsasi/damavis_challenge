@@ -4,11 +4,11 @@ import src.board as board
 def available_paths(initial_board: board.Board, depth: int) -> int:
     """Paths are scrapped using Breadth-first search (BFS) algorithm with early stopping. The implementation of DFS is
     done using a QUEUE data structure. Remark that for a tree (our case), we don't need to keep track of visited nodes.
-    Take int account that BFS is a computationally expensive operation:
-        - Time complexity: In general, O(V) where V is the number of nodes (you need to traverse all nodes at worst). For
-            our case, with 4 possible moves and depth p, there are ~4^p nodes.
-        - Space complexity: O(V) as well - since at worst case you need to hold all vertices in the queue.
+    Note: Take int account that BFS is a computationally expensive operation:
+        - Time complexity: O(3^depth)
+        - Space complexity: O(3^depth)
 
+    Checkt the docs for a more detailed explanation.
     """
 
     # Considered board moves
