@@ -8,7 +8,7 @@ def available_paths(initial_board: board.Board, depth: int) -> int:
         - Time complexity: O(3^depth)
         - Space complexity: O(3^depth)
 
-    Checkt the docs for a more detailed explanation.
+    Check the docs for a more detailed explanation.
     """
 
     # Considered board moves
